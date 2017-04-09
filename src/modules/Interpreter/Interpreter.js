@@ -3,7 +3,7 @@
  * @typedef {Array<Array<Char>>} SourceCode
  */
 import operators from "./Operators";
-import {MODE_INTER, MODE_STRING, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MOVE_UP} from "./Consts";
+import {MODE_INTER, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MOVE_UP} from "./Consts";
 import {FieldRangeError, InputError, Unexpexted} from "./Errors";
 
 "use strict";
@@ -56,9 +56,9 @@ export default class Interpreter {
     /**
      * @return {undefined|number}
      */
-    step() {
+    async step() {
         this._moveCursor();
-        return this._evalUnderCursor();
+      return await this._evalUnderCursor();
     }
 
     _moveCursor() {
@@ -122,23 +122,21 @@ export default class Interpreter {
      * Interprets charter under the cursor. Returns undefined if programme isn't finished and status code if is
      * @return {undefined|number}
      */
-    _evalUnderCursor() {
+    async _evalUnderCursor() {
 
         let cur = this.get(this._pos[0], this._pos[1]),
             ret = undefined;
 
         if (this.operators.hasOwnProperty(cur))
-            ret = this.operators[cur].call(this, cur);
+          ret = await this.operators[cur].call(this, cur);
 
         else if (this.operators.hasOwnProperty(cur + '[' + this._mode + ']'))
-            ret = this.operators[cur].call(this, cur);
+          ret = await this.operators[cur].call(this, cur);
 
-        else if (this._mode === MODE_STRING) {
+        else if (this.operators.hasOwnProperty('[' + this._mode + ']'))
+          ret = await this.operators[cur].call(this, cur);
 
-            this.stack.push(cur);
-            return -1;
-
-        } else
+        else
             throw new Unexpexted();
 
         return ret;
@@ -160,13 +158,15 @@ export default class Interpreter {
      * @param {Char} number
      * @private
      */
-    _print(number) {
-        this.callbacks.stdout(number)
+    async _print(number) {
+      await this.callbacks.stdout(number)
     }
 
     _getValueFromIO() {
-        let val = this.callbacks.stdin();
-        if (val === undefined)
+
+      let val = this.callbacks.stdin();
+
+      if (val === undefined)
             throw InputError("Must return number in ASCII range");
         else
             return val

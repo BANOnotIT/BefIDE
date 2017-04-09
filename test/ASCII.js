@@ -2,7 +2,7 @@
  * Created by BANO.notIT on 08.03.17.
  */
 
-let ASCII = require("../src/modules/ASCII");
+let ASCII = require("./ASCII");
 
 let should = require("should");
 
