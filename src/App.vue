@@ -2,16 +2,19 @@
   <div id="app">
     <img src="./assets/logo.png">
     <hello></hello>
+    <editor></editor>
   </div>
 </template>
 
 <script>
   import Hello from './components/Hello'
+  import Editor from './components/Editor/Editor.vue'
 
   export default {
     name: 'app',
     components: {
-      Hello
+      Hello,
+      Editor
     }
   }
 </script>
