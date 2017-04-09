@@ -7,7 +7,7 @@ const map = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`
  */
 export function fromNumeric2ASCII(num) {
 
-    if (num == 9)
+    if (num === 9)
         return "\t";
 
     num -= 32;
@@ -29,7 +29,7 @@ export function fromASCII2Numeric(char) {
 
     char = char[0];
 
-    if (char == '\t')
+    if (char === '\t')
         return 9;
 
     let pos = map.indexOf(char);

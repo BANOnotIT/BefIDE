@@ -13,3 +13,11 @@ export class Unexpexted extends Error {
     }
 
 }
+
+export class InputError extends Error {
+
+    constructor() {
+        super()
+    }
+
+}

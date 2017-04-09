@@ -1,4 +1,4 @@
-import {MODE_STRING, MODE_INTER, MOVE_RIGHT, MOVE_LEFT, MOVE_DOWN, MOVE_UP} from "./Consts";
+import {MODE_INTER, MODE_STRING, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MOVE_UP} from "./Consts";
 import Rand from "../Random";
 import {FieldRangeError} from "./Errors";
 import * as ASCII from "../ASCII";
@@ -20,13 +20,13 @@ const operators = {
     "<": move,
     "^": move,
     "_": function () {
-        if (this.top == 0)
+        if (this.top === 0)
             this._dir = MOVE_RIGHT;
         else
             this._dir = MOVE_LEFT;
     },
     "|": function () {
-        if (this.top == 0)
+        if (this.top === 0)
             this._dir = MOVE_DOWN;
         else
             this._dir = MOVE_UP;
@@ -126,10 +126,10 @@ const operators = {
         this.stack.push(ASCII.fromASCII2Numeric(this.inputChar()));
     },
     ".": function () {
-        this.print(this.top);
+        this._print(this.top);
     },
     ",": function () {
-        this.print(ASCII.fromNumeric2ASCII(this.top));
+        this._print(ASCII.fromNumeric2ASCII(this.top));
     },
     " ": function () {
     }
