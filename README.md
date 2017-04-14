@@ -1,21 +1,23 @@
-# this
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# Install
+Install latest nodejs from [nodejs.org](http://nodejs.org/). It'll install npm.
+ 
+Than install dependencies by running:
+```bash
+npm i
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# Build
+After __install__ you can build app by running
+```bash
+npm run build
+```
+
+# Dev
+After __install__ you can run devserver by running
+```bash
+npm start
+```
+or
+```bash
+npm run dev
+```

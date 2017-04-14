@@ -1,10 +1,19 @@
-import Vue from "vue";
-import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
 
-Vue.config.productionTip = false;
+class App extends React.Component {
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  render: h => h(App)
-});
+    render() {
+
+        return <div>asdfasdf</div>
+
+    }
+
+}
+
+
+// Render it to DOM
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);

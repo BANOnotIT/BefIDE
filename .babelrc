@@ -6,7 +6,13 @@
         "modules": false
       }
     ],
-    "es2015",
+      [
+          "es2015",
+          {
+              "modules": false
+          }
+      ],
+      "react",
     "stage-0"
   ],
   "plugins": [
@@ -24,12 +30,7 @@
   "env": {
     "test": {
       "presets": [
-        "env",
-        "stage-2",
-        "stage-0"
-      ],
-      "plugins": [
-        "istanbul"
+          "react-hmre"
       ]
     }
   }
