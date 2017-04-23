@@ -58,7 +58,7 @@ export default class Interpreter {
      */
     async step() {
         this._moveCursor();
-      return await this._evalUnderCursor();
+        return await this._evalUnderCursor();
     }
 
     _moveCursor() {
@@ -128,13 +128,13 @@ export default class Interpreter {
             ret = undefined;
 
         if (this.operators.hasOwnProperty(cur))
-          ret = await this.operators[cur].call(this, cur);
+            ret = await this.operators[cur].call(this, cur);
 
         else if (this.operators.hasOwnProperty(cur + '[' + this._mode + ']'))
-          ret = await this.operators[cur].call(this, cur);
+            ret = await this.operators[cur].call(this, cur);
 
         else if (this.operators.hasOwnProperty('[' + this._mode + ']'))
-          ret = await this.operators[cur].call(this, cur);
+            ret = await this.operators[cur].call(this, cur);
 
         else
             throw new Unexpexted();
@@ -159,14 +159,14 @@ export default class Interpreter {
      * @private
      */
     async _print(number) {
-      await this.callbacks.stdout(number)
+        await this.callbacks.stdout(number)
     }
 
     _getValueFromIO() {
 
-      let val = this.callbacks.stdin();
+        let val = this.callbacks.stdin();
 
-      if (val === undefined)
+        if (val === undefined)
             throw InputError("Must return number in ASCII range");
         else
             return val

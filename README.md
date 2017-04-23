@@ -1,14 +1,10 @@
 # Install
 Install latest nodejs from [nodejs.org](http://nodejs.org/). It'll install npm.
- 
-Than install dependencies by running:
-```bash
-npm i
-```
 
 # Build
 After __install__ you can build app by running
 ```bash
+npm i -D
 npm run build
 ```
 

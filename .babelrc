@@ -1,37 +1,37 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
+    "presets": [
+        [
+            "env",
+            {
+                "modules": false
+            }
+        ],
+        [
+            "es2015",
+            {
+                "modules": false
+            }
+        ],
+        "react",
+        "stage-0"
     ],
-      [
-          "es2015",
-          {
-              "modules": false
-          }
-      ],
-      "react",
-    "stage-0"
-  ],
-  "plugins": [
-    "syntax-async-functions",
-    "transform-runtime",
-    [
-      "transform-regenerator",
-      {
-        "async": true,
-        "asyncGenerators": true
-      }
-    ]
-  ],
-  "comments": false,
-  "env": {
-    "test": {
-      "presets": [
-          "react-hmre"
-      ]
+    "plugins": [
+        "syntax-async-functions",
+        "transform-runtime",
+        [
+            "transform-regenerator",
+            {
+                "async": true,
+                "asyncGenerators": true
+            }
+        ]
+    ],
+    "comments": false,
+    "env": {
+        "test": {
+            "presets": [
+                "react-hmre"
+            ]
+        }
     }
-  }
 }

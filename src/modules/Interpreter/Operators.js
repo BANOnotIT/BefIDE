@@ -93,18 +93,18 @@ const operators = {
         this.stack.push(this.pop() + this.pop());
     },
     "-": function () {
-      let [b, a] = [this.pop(), this.pop()];
+        let [b, a] = [this.pop(), this.pop()];
         this.stack.push(a - b);
     },
     "*": function () {
         this.stack.push(this.pop() * this.pop());
     },
     "/": function () {
-      let [b, a] = [this.pop(), this.pop()];
+        let [b, a] = [this.pop(), this.pop()];
         this.stack.push(a / b | 0);
     },
     "%": function () {
-      let [b, a] = [this.pop(), this.pop()];
+        let [b, a] = [this.pop(), this.pop()];
         this.stack.push(a % b);
     },
     // Logical
@@ -115,7 +115,7 @@ const operators = {
         this.stack.push(+!a);
     },
     "`": function () {
-      let [b, a] = [this.pop(), this.pop()];
+        let [b, a] = [this.pop(), this.pop()];
         this.stack.push(a > b ? 1 : 0);
     },
     // IO
@@ -123,7 +123,7 @@ const operators = {
         this.stack.push(this.inputNumber());
     },
     "~": function () {
-      this.stack.push(ASCII.fromASCII2Numeric(this._getValueFromIO()));
+        this.stack.push(ASCII.fromASCII2Numeric(this._getValueFromIO()));
     },
     ".": function () {
         this._print(this.top);
@@ -131,10 +131,10 @@ const operators = {
     ",": function () {
         this._print(ASCII.fromNumeric2ASCII(this.top));
     },
-  " ": new Function(),
-  // Modes
-  ['[' + MODE_STRING + ']']: function (char) {
-    this.stack.push(ASCII.fromASCII2Numeric(char))
+    " ": new Function(),
+    // Modes
+    ['[' + MODE_STRING + ']']: function (char) {
+        this.stack.push(ASCII.fromASCII2Numeric(char))
     }
 };
 
